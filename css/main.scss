@@ -22,9 +22,9 @@ body {
 }
 
 .header {
-    @include marginDesktop(1200px, 60px);
+    @include marginDesktop(1200px, 30px);
     display: flex;
-    padding: 60px 0;
+    padding: 30px 0;
 
     .favicon {
         display: flex;
@@ -354,8 +354,8 @@ body {
 @media screen and (max-width: 1280px) {
 
     .header {
-        @include marginDesktop(960px, 40px);
-        padding: 40px 0;
+        @include marginDesktop(960px, 20px);
+        padding: 20px 0;
 
         .favicon {
             width: 35%;
@@ -505,7 +505,8 @@ body {
 @media screen and (max-width:980px) {
 
     .header {
-        @include marginDesktop(90%, 10px);
+        @include marginDesktop(90%, 0px);
+        padding: 10px 0;
 
         .favicon {
             flex-direction: column;
@@ -712,7 +713,8 @@ body {
 @media screen and (max-width:736px) {
 
     .header {
-        @include marginDesktop(95%, 0px);
+        @include marginDesktop(95%, 10px);
+        padding: 0;
 
         .favicon {
 

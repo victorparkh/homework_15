@@ -3,10 +3,10 @@ body {
 
 .header {
   width: 1200px;
-  margin: 60px auto;
+  margin: 30px auto;
   max-width: 100%;
   display: flex;
-  padding: 60px 0; }
+  padding: 30px 0; }
   .header .favicon {
     display: flex;
     width: 35%; }
@@ -236,9 +236,9 @@ body {
 @media screen and (max-width: 1280px) {
   .header {
     width: 960px;
-    margin: 40px auto;
+    margin: 20px auto;
     max-width: 100%;
-    padding: 40px 0; }
+    padding: 20px 0; }
     .header .favicon {
       width: 35%; }
       .header .favicon .logo {
@@ -342,8 +342,9 @@ body {
 @media screen and (max-width: 980px) {
   .header {
     width: 90%;
-    margin: 10px auto;
-    max-width: 100%; }
+    margin: 0px auto;
+    max-width: 100%;
+    padding: 10px 0; }
     .header .favicon {
       flex-direction: column;
       margin: 0 auto;
@@ -487,8 +488,9 @@ body {
 @media screen and (max-width: 736px) {
   .header {
     width: 95%;
-    margin: 0px auto;
-    max-width: 100%; }
+    margin: 10px auto;
+    max-width: 100%;
+    padding: 0; }
     .header .favicon .logo {
       font-size: 2.5rem;
       color: #fff;
