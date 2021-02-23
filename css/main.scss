@@ -1,0 +1,830 @@
+$logoBgColor: #ff4486;
+$btnMain: #0090c5;
+$bgMenuActive: rgb(68, 68, 68);
+$TextColor: #696969;
+$H1Color: #444;
+$mainBgColor: #fff;
+
+@mixin marginDesktop ($width, $marginTopBot) {
+    width: $width;
+    margin: $marginTopBot auto;
+    max-width: 100%;
+}
+
+@mixin textSettings ($fontSize, $fontColor, $fontWeight) {
+    font-size: $fontSize;
+    color: $fontColor;
+    font-weight: $fontWeight;
+}
+
+body {
+    background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0)), url("imgs/bg01.png");
+}
+
+.header {
+    @include marginDesktop(1200px, 60px);
+    display: flex;
+    padding: 60px 0;
+
+    .favicon {
+        display: flex;
+        width: 35%;
+
+        .logo {
+            @include textSettings(3rem, $mainBgColor, bold);
+            background-color: $logoBgColor;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .logo__text {
+            @include textSettings(1.2rem, $TextColor, bold);
+            align-self: center;
+            padding-left: 30px;
+        }
+    }
+
+    .menu {
+        width: 65%;
+        margin: auto;
+
+        .menu__items {
+            display: flex;
+            justify-content: space-between;
+
+            .menu__item {
+                position: relative;
+
+                .submenu {
+                    position: absolute;
+                    margin-top: 30px;
+                    width: 200px;
+                    background-color: $mainBgColor;
+                    overflow: hidden;
+                    height: 0;
+                    opacity: 0;
+                    line-height: 30px;
+                    border-radius: 5px;
+                    border: 1px solid silver;
+                    transition: opacity 2s, height 1s;
+
+                    .border {
+                        border-bottom: 1px solid silver;
+                    }
+
+                    .submenu__item {
+                        padding: 10px 20px;
+
+                        .submenu__link {
+                            text-decoration: none;
+                            color: $TextColor;
+                        }
+                    }
+                }
+
+                &:hover .submenu {
+                    height: 200px;
+                    opacity: 1;
+                    transition: opacity 2s, height 1s;
+                }
+
+                .menu__link {
+                    @include textSettings(1.2rem, $TextColor, bold);
+                    text-decoration: none;
+                    padding: 10px 20px;
+
+                    &:hover {
+                        background-color: $mainBgColor;
+                        border-radius: 5px;
+                    }
+
+                    &:focus {
+                        color: $mainBgColor;
+                        background-color: $bgMenuActive;
+                        border-radius: 5px;
+                    }
+                }
+            }
+        }
+    }
+
+    .adaptive__icon {
+        display: none;
+    }
+}
+
+.main {
+    @include marginDesktop(1200px, 60px);
+    display: flex;
+    justify-content: space-between;
+    background-color: $mainBgColor;
+    border-radius: 5px;
+    padding: 100px 5%;
+
+    .main__text {
+        width: 45%;
+
+        h1 {
+            @include textSettings(4rem, $H1Color, bolder);
+            margin-bottom: 10px;
+        }
+
+        p {
+            @include textSettings(3rem, $TextColor, normal);
+        }
+    }
+
+    .buttons {
+        width: 45%;
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .btn {
+            @include textSettings(2rem, $mainBgColor, bold);
+            padding: 20px;
+            width: 80%;
+            border-radius: 5px;
+            text-align: justify;
+            margin-bottom: 10px;
+
+            a {
+                text-decoration: none;
+            }
+        }
+
+        .btn__main {
+            background-color: $btnMain;
+
+            a {
+                color: $mainBgColor;
+
+            }
+        }
+
+        .btn__info {
+            background-color: rgba(192, 192, 192, 0.548);
+
+            a {
+                color: $H1Color;
+            }
+        }
+    }
+}
+
+.portfolio {
+    @include marginDesktop(1200px, 100px);
+    display: flex;
+    justify-content: space-between;
+
+    .portfolio__item {
+        background-color: $mainBgColor;
+        border-radius: 10px;
+        width: 31%;
+
+        .portfolio__img {
+
+            img {
+                width: 100%;
+                border-radius: 10px 10px 0 0;
+            }
+        }
+
+        .portfolio__info {
+            padding: 60px 25px;
+
+
+            .margin--bottom {
+                margin-bottom: 20px;
+            }
+
+            h3 {
+                @include textSettings(2rem, $H1Color, bolder);
+            }
+
+            p {
+                @include textSettings(1.2rem, $TextColor, normal);
+                line-height: 40px;
+            }
+        }
+    }
+}
+
+.info {
+    margin: 50px auto;
+    display: flex;
+    justify-content: space-between;
+    background-color: $mainBgColor;
+    padding: 60px 7.5%;
+
+    .info__photos {
+        width: 30%;
+
+        h3 {
+            @include textSettings(2rem, $H1Color, bolder);
+        }
+
+        .info__imgs {
+
+            .info__row {
+                display: flex;
+                justify-content: space-between;
+                margin: 20px 0;
+
+                .info__row--img {
+                    margin: 0 20px 0 0;
+
+                    img {
+                        width: 100%;
+                        border-radius: 5px;
+                    }
+                }
+            }
+        }
+    }
+
+    .info__text {
+        width: 60%;
+
+        h2 {
+            @include textSettings(2.5rem, $H1Color, bolder);
+        }
+
+        p {
+            @include textSettings(1.2rem, $TextColor, normal);
+            line-height: 40px;
+            margin: 30px 0;
+        }
+
+    }
+
+    .info__btn {
+        ul {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .btn {
+            @include textSettings(1.5rem, $mainBgColor, bolder);
+            padding: 15px;
+            width: 40%;
+            border-radius: 5px;
+            text-align: center;
+            margin-bottom: 10px;
+
+            a {
+                text-decoration: none;
+            }
+        }
+
+        .btn__main {
+            background-color: $btnMain;
+
+            a {
+                color: $mainBgColor;
+            }
+        }
+    }
+}
+
+.footer {
+    @include marginDesktop(1200px, 100px);
+
+    .footer__nav {
+        display: flex;
+        justify-content: space-between;
+
+        .footer__column {
+            h3 {
+                @include textSettings(2rem, $H1Color, bolder);
+                margin-bottom: 30px;
+            }
+
+            .social {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            p {
+                font-size: 1.2rem;
+                line-height: 40px;
+
+                a {
+                    color: $TextColor;
+
+                    &:hover {
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+
+    .footer__down {
+        display: flex;
+        justify-content: space-between;
+        width: 50%;
+        margin: 50px auto;
+        color: $TextColor;
+        line-height: 30px;
+
+        .vertical__line {
+            width: 1px;
+            background-color: $TextColor;
+        }
+
+        .down__cell {
+            a {
+                color: $TextColor;
+
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+
+// @media screen and (max-width: 1280px)
+
+@media screen and (max-width: 1280px) {
+
+    .header {
+        @include marginDesktop(960px, 40px);
+        padding: 40px 0;
+
+        .favicon {
+            width: 35%;
+
+            .logo {
+                @include textSettings(2.5rem, $mainBgColor, bold);
+            }
+
+            .logo__text {
+                @include textSettings(1rem, $TextColor, bold);
+                padding-left: 20px;
+            }
+        }
+
+        .menu {
+            width: 65%;
+
+            .submenu {
+                margin-top: 20px;
+                width: 180px;
+                line-height: 20px;
+
+                .submenu__item {
+                    padding: 8px 15px;
+                }
+            }
+
+            .menu__items {
+
+                .menu__item {
+
+                    .menu__link {
+                        @include textSettings(1.1rem, $TextColor, bold);
+                        padding: 8px 15px;
+                    }
+                }
+            }
+        }
+    }
+
+    .main {
+        @include marginDesktop(960px, 40px);
+        padding: 80px 5%;
+
+        .main__text {
+
+            h1 {
+                @include textSettings(3rem, $H1Color, bolder);
+            }
+
+            p {
+                @include textSettings(2rem, $TextColor, normal);
+            }
+        }
+    }
+
+
+    .portfolio {
+        @include marginDesktop(960px, 40px);
+
+        .portfolio__item {
+
+            .portfolio__info {
+                padding: 40px 20px;
+
+                h3 {
+                    @include textSettings(1.5rem, $H1Color, bolder);
+                }
+
+                p {
+                    @include textSettings(1rem, $TextColor, normal);
+                }
+            }
+        }
+    }
+
+    .info {
+        margin: 40px auto;
+
+        .info__photos {
+            width: 30%;
+
+            h3 {
+                @include textSettings(1.5rem, $H1Color, bolder);
+            }
+
+            .info__imgs {
+                margin-bottom: 50px;
+
+                .info__row {
+                    margin: 10px 0;
+
+                    img {
+                        margin: 0 10px 0 0;
+                    }
+                }
+            }
+        }
+
+        .info__text {
+            width: 60%;
+
+            h2 {
+                @include textSettings(2rem, $H1Color, bolder);
+            }
+
+            p {
+                @include textSettings(1rem, $TextColor, normal);
+                line-height: 30px;
+                margin: 20px 0;
+            }
+        }
+
+        .info__btn {
+
+            .btn {
+                @include textSettings(1.2rem, $mainBgColor, bolder);
+            }
+        }
+    }
+
+    .footer {
+        @include marginDesktop(960px, 40px);
+
+        .footer__nav {
+
+            .footer__column {
+                h3 {
+                    @include textSettings(1.5rem, $H1Color, bolder);
+                }
+
+                p {
+                    font-size: 1rem;
+                    line-height: 30px;
+                }
+            }
+        }
+
+        .footer__down {
+            @include marginDesktop(600px, 60px);
+        }
+    }
+}
+
+// media screen and (max-width:980px)
+
+@media screen and (max-width:980px) {
+
+    .header {
+        @include marginDesktop(90%, 10px);
+
+        .favicon {
+            flex-direction: column;
+            margin: 0 auto;
+            width: 150px;
+            text-align: center;
+
+            .logo {
+                @include textSettings(3rem, $mainBgColor, bold);
+                background-color: $logoBgColor;
+                padding: 10px;
+                border-radius: 5px;
+                margin-bottom: 20px
+            }
+
+            .logo__text {
+                @include textSettings(1.2rem, $TextColor, bold);
+                text-align: center;
+                padding: 0;
+            }
+        }
+
+
+        .adaptive__icon {
+            display: block;
+            position: fixed;
+            top: 20px;
+            left: 30px;
+            transform: scale(1.5);
+            padding: 5px 10px;
+            color: white;
+            background-color: #69696980;
+            border-radius: 5px;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        .menu {
+            display: block;
+            position: absolute;
+            top: 80px;
+            background: rgb(245, 246, 246);
+            box-shadow: #ccc;
+            width: 40%;
+            left: -100%;
+            transition: all 0.4s ease;
+
+            .menu__items {
+
+                flex-direction: column;
+                padding: 10px;
+
+                .menu__item {
+                    margin: 10px 10px 30px 10px;
+
+                    .submenu {
+                        position: absolute;
+                        width: 250px;
+                        margin-top: 0px;
+                        top: 0;
+                        left: 150px;
+
+                        .submenu__item {
+                            padding: 0;
+                            line-height: 50px;
+
+                            .submenu__link {
+                                padding: 0 30px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .menu.open-menu {
+            left: 0;
+        }
+    }
+
+    .main {
+        @include marginDesktop(90%, 60px);
+        display: flex;
+        flex-direction: column;
+        padding: 100px 5%;
+
+        .main__text {
+            width: 100%;
+            text-align: center;
+
+            h1 {
+                @include textSettings(4rem, $H1Color, bolder);
+                margin-bottom: 30px;
+            }
+
+            p {
+                @include textSettings(3rem, $TextColor, normal);
+                margin-bottom: 30px;
+            }
+        }
+
+        .buttons {
+            width: 100%;
+            margin: 0 auto;
+
+            ul {
+                align-items: center;
+            }
+
+            .btn {
+                @include textSettings(3rem, $mainBgColor, bold);
+                width: 100%;
+                text-align: center;
+            }
+        }
+    }
+
+    .portfolio {
+        @include marginDesktop(90%, 100px);
+        flex-direction: column;
+
+        .portfolio__item {
+            width: 100%;
+            margin: 0 auto;
+            margin-bottom: 50px;
+
+            .portfolio__info {
+
+                h3 {
+                    @include textSettings(1.5rem, $H1Color, bolder);
+                }
+
+                p {
+                    @include textSettings(1rem, $TextColor, normal);
+                }
+            }
+        }
+    }
+
+    .info {
+        flex-direction: column-reverse;
+
+        .info__photos {
+            width: 100%;
+
+            h3 {
+                @include textSettings(2rem, $H1Color, bolder);
+            }
+
+            .info__imgs {
+
+                .info__row {
+
+                    .info__row--img {
+                        width: 50%;
+
+                        img {
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        .info__text {
+            width: 100%;
+        }
+
+        .info__btn {
+
+            .btn {
+                width: 100%;
+            }
+        }
+    }
+
+    .footer {
+        @include marginDesktop(90%, 100px);
+
+        .footer__nav {
+            flex-wrap: wrap;
+
+            .footer__column {
+                width: 45%;
+                margin: 50px auto;
+
+                .social {
+                    width: 50%;
+                }
+            }
+        }
+
+        .footer__down {
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+}
+
+// media screen and (max-width:736px)
+
+@media screen and (max-width:736px) {
+
+    .header {
+        @include marginDesktop(95%, 0px);
+
+        .favicon {
+
+            .logo {
+                @include textSettings(2.5rem, $mainBgColor, bold);
+            }
+
+            .logo__text {
+                @include textSettings(1rem, $TextColor, bold);
+            }
+        }
+    }
+
+    .main {
+        @include marginDesktop(95%, 20px);
+        padding: 0 15px;
+
+        .main__text {
+
+            h1 {
+                @include textSettings(2rem, $H1Color, bolder);
+                padding-top: 40px;
+            }
+
+            p {
+                @include textSettings(1.5rem, $TextColor, normal);
+            }
+        }
+
+        .buttons {
+
+            .btn {
+                @include textSettings(1.5rem, $mainBgColor, bold);
+            }
+        }
+    }
+
+    .portfolio {
+        @include marginDesktop(95%, 40px);
+    }
+
+    .info {
+        flex-direction: column-reverse;
+        padding: 0 3%;
+
+        .info__photos {
+            width: 100%;
+            padding-top: 40px;
+
+            h3 {
+                @include textSettings(1.2rem, $H1Color, bolder);
+                margin-bottom: 20px;
+            }
+
+            .info__imgs {
+
+                .info__row {
+
+                    .info__row--img {
+                        width: 50%;
+
+                        img {
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        .info__text {
+            width: 100%;
+            padding: 40px 0;
+            border-bottom: 1px solid rgba(192, 192, 192, 0.507);
+
+            h2 {
+                @include textSettings(1.2rem, $H1Color, bolder);
+            }
+
+            p {
+                @include textSettings(1rem, $TextColor, normal);
+            }
+        }
+
+        .info__btn {
+
+            .btn {
+                width: 100%;
+            }
+        }
+    }
+
+    .footer {
+        @include marginDesktop(95%, 0px);
+
+        .footer__nav {
+            flex-wrap: wrap;
+
+            .footer__column {
+                width: 100%;
+                margin: 10px auto;
+                padding-bottom: 20px;
+                border-bottom: 1px solid rgba(192, 192, 192, 0.507);
+
+                .social {
+                    width: 25%;
+                }
+            }
+        }
+
+        .footer__down {
+            flex-direction: column;
+            text-align: left;
+        }
+    }
+}
